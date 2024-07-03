@@ -13,6 +13,7 @@ public class ToDoListApp {
             System.out.println("3. Show Tasks");
             System.out.println("4. Remove Task");
             System.out.println("5. Exit");
+            System.out.println("6. Edit Task");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();  
@@ -41,9 +42,21 @@ public class ToDoListApp {
                     break;
 
                 case 6:
+                    System.out.println("Enter task number to edit: ");
+                    int editTaskNumber = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Enter new task description: ");
+                    String newDescription = scanner.nextLine();
+                    toDoList.editTask(editTaskNumber - 1, newDescription);
+                    break;
+
+                    
+
                     
                 default:
                     System.out.println("Invalid option. Please try again.");
+
+
             }
 
             System.out.println();
