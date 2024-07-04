@@ -1,10 +1,15 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Task {
     private String description;
     private boolean isCompleted;
+    private LocalDateTime timestamp;
 
     public Task(String description) {
         this.description = description;
         this.isCompleted = false;
+        this.timestamp = LocalDateTime.now();
     }
 
     public String getDescription() {

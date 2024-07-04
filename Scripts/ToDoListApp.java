@@ -4,6 +4,8 @@ public class ToDoListApp {
     public static void main(String[] args) {
         ToDoList toDoList = new ToDoList();
         Scanner scanner = new Scanner(System.in);
+        TaskFileManager fileManager = new TaskFileManager();
+
         boolean running = true;
 
         while (running) {
@@ -14,6 +16,11 @@ public class ToDoListApp {
             System.out.println("4. Remove Task");
             System.out.println("5. Exit");
             System.out.println("6. Edit Task");
+            System.out.println("7. Show Completed Tasks");
+            System.out.println("8. Show Pending Tasks");
+            System.out.println("9. Save Tasks");
+            System.out.println("10. Load Tasks");
+
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
             scanner.nextLine();  
@@ -48,6 +55,22 @@ public class ToDoListApp {
                     System.out.println("Enter new task description: ");
                     String newDescription = scanner.nextLine();
                     toDoList.editTask(editTaskNumber - 1, newDescription);
+                    break;
+
+                case 7:
+                    toDoList.showCompletedTask();
+                    break;
+
+
+                case 8:
+                    toDoList.showPendingTasks();
+                    break;
+
+                case 9:
+                    toDoList.saveTasks("tasks.txt", fileManager);
+                    break;
+                case 10:
+                    toDoList.LoadTasks("tasks.txt", fileManager);
                     break;
 
                     

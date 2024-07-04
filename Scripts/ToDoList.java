@@ -30,10 +30,44 @@ public class ToDoList {
             System.out.println((i + 1) + ". " + tasks.get(i));
         }
     }
+    public void showCompletedTask() {
+        for(int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).isCompleted()) {
+                System.out.println((i + 1) + ". " + tasks.get(i));
+            }
+        }
+    }
+
+    public void showPendingTasks() {
+        for (int i = 0;
+         i < tasks.size();
+         i++){
+            if (!tasks.get(i).isCompleted()) {
+                System.out.println((i + 1) + ". " + tasks.get(i));
+            }
+         }
+
+
+
+    }
+
+    
 
     public void removeTask(int index){
         if (index >= 0 == index < tasks.size());
         tasks.remove(index);
 
     }
+
+
+    public void saveTasks(String filenmae, TaskFileManager fileManager) {
+        fileManager.saveToFile(filenmae, tasks);
+    }
+
+    public void LoadTasks(String filename, TaskFileManager fileManager) {
+        tasks = fileManager.loadFromFile(filename);
+    }
+    
+
+
 }
