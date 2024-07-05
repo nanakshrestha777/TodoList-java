@@ -1,0 +1,3 @@
+buy groceries|true
+finish java homework|false
+clean the house|false
