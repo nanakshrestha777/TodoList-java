@@ -14,12 +14,33 @@
                 <h1>To-Do List Application</h1>
             </div>
             <div class="card-body">
-                <input type="text" id="taskInput" class="form-control mb-2" placeholder="Enter task description">
-                <button class="btn btn-primary mb-2" onclick="addTask()">Add Task</button>
-                <ul id="taskList" class="list-group"></ul>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="input-group mb-3">
+                            <input type="text" id="taskInput" class="form-control" placeholder="Enter task description" aria-label="Enter task description" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" onclick="addTask()">Add Task</button>
+                            </div>
+                        </div>
+                        <ul id="taskList" class="list-group">
+                            <!-- Task items will be added here -->
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Options</h2>
+                        <button class="btn btn-secondary btn-block mb-2" onclick="showCompletedTasks()">Show Completed Tasks</button>
+                        <button class="btn btn-secondary btn-block mb-2" onclick="showPendingTasks()">Show Pending Tasks</button>
+                        <button class="btn btn-secondary btn-block mb-2" onclick="saveTasks()">Save Tasks</button>
+                        <button class="btn btn-secondary btn-block mb-2" onclick="loadTasks()">Load Tasks</button>
+                        <button class="btn btn-secondary btn-block" onclick="exit()">Exit</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

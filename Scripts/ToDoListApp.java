@@ -12,18 +12,20 @@ public class ToDoListApp {
         while (running) {
                  
             System.out.println("To-Do List Application");
-            System.out.print("----------  Choose an option  ---------- ");
+            System.out.println("----------  Choose an option  ---------- ");
 
             System.out.println("1. Add Task");
             System.out.println("2. Complete Task");
             System.out.println("3. Show Tasks");
             System.out.println("4. Remove Task");
-            System.out.println("5. Exit");
-            System.out.println("6. Edit Task");
-            System.out.println("7. Show Completed Tasks");
-            System.out.println("8. Show Pending Tasks");
-            System.out.println("9. Save Tasks");
-            System.out.println("10. Load Tasks");
+            System.out.println("5. Edit Task");
+            System.out.println("6. Show Completed Tasks");
+            System.out.println("7. Show Pending Tasks");
+            System.out.println("8. Save Tasks");
+            System.out.println("9. Load Tasks");
+            System.out.println("10. Exit");
+            System.out.println("---------------------------");
+            
 
      
 
@@ -45,16 +47,12 @@ public class ToDoListApp {
                     case 3:
                         toDoList.showTasks();
                         break;
-                    case 5:
-                        running = false;
-                        break;
                     case 4:
                         System.out.println("Enter task number to remove: ");
                         int removeTaskNumber = scanner.nextInt();
                         toDoList.removeTask(removeTaskNumber - 1);
-                        break;
-
-                    case 6:
+                        break;    
+                    case 5:
                         System.out.println("Enter task number to edit: ");
                         int editTaskNumber = scanner.nextInt();
                         scanner.nextLine();
@@ -62,21 +60,30 @@ public class ToDoListApp {
                         String newDescription = scanner.nextLine();
                         toDoList.editTask(editTaskNumber - 1, newDescription);
                         break;
+                  
+
+                    case 6:
+                        toDoList.showCompletedTask();
+
+                        break;
 
                     case 7:
-                        toDoList.showCompletedTask();
+                        toDoList.showPendingTasks();
                         break;
 
 
                     case 8:
-                        toDoList.showPendingTasks();
+                        toDoList.saveTasks("tasks.txt", fileManager);
+                        
                         break;
 
                     case 9:
-                        toDoList.saveTasks("tasks.txt", fileManager);
+                        toDoList.LoadTasks("tasks.txt", fileManager);
+
                         break;
                     case 10:
-                        toDoList.LoadTasks("tasks.txt", fileManager);
+                        running = false;
+
                         break;
 
                         

@@ -1,3 +1,3 @@
-buy groceries|true
-finish java homework|false
-clean the house|false
+going for walk|false
+lunch time|false
+taking medicine|false

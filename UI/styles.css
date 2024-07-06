@@ -4,7 +4,7 @@ body {
     margin: 0;
 }
 
-.card {
+/* .card {
     max-width: 500px;
     margin: auto;
 }
@@ -18,4 +18,4 @@ li {
 li.completed {
     text-decoration: line-through;
     color: #888;
-}
+} */

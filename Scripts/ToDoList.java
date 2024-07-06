@@ -22,12 +22,17 @@ public class ToDoList {
     public void completeTask(int index) {
         if (index >= 0 && index < tasks.size()) {
             tasks.get(index).markAsCompleted();
+        } else {
+            System.out.println("No task completed..");
         }
     }
-
     public void showTasks() {
-        for (int i = 0; i < tasks.size(); i++) {
-            System.out.println((i + 1) + ". " + tasks.get(i));
+        if (tasks.isEmpty()) {
+            System.out.println("No tasks to show");
+        } else {
+            for (int i = 0; i < tasks.size(); i++) {
+                System.out.println((i + 1) + ". " + tasks.get(i));
+            }
         }
     }
     public void showCompletedTask() {
@@ -39,13 +44,19 @@ public class ToDoList {
     }
 
     public void showPendingTasks() {
+        boolean hasPendingTasks = false;
         for (int i = 0;
          i < tasks.size();
          i++){
             if (!tasks.get(i).isCompleted()) {
+                System.out.println("...List of Pending Tasks...");
                 System.out.println((i + 1) + ". " + tasks.get(i));
+                hasPendingTasks = true;
             }
-         }
+        }
+        if (!hasPendingTasks) {
+            System.out.println("No pending tasks..");
+        }
 
 
 
@@ -54,14 +65,19 @@ public class ToDoList {
     
 
     public void removeTask(int index){
-        if (index >= 0 == index < tasks.size());
-        tasks.remove(index);
+        if (index >= 0 == index < tasks.size()) {
+            tasks.remove(index);
+            System.out.println("Task removed Successfully");
+        } else {
+            System.out.println("No task removed.");
+        }
+    
 
     }
 
 
-    public void saveTasks(String filenmae, TaskFileManager fileManager) {
-        fileManager.saveToFile(filenmae, tasks);
+    public void saveTasks(String filename, TaskFileManager fileManager) {
+        fileManager.saveToFile(filename, tasks);
     }
 
     public void LoadTasks(String filename, TaskFileManager fileManager) {
